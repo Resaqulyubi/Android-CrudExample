@@ -5,24 +5,14 @@ import android.os.Build;
 
 import android.support.v7.app.AppCompatDelegate;
 
-import com.orm.SugarApp;
 
-public class MyApplication extends SugarApp {
+public class MyApplication  {
 
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 
     private static MyApplication mInstance;
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        mInstance = this;
-
-
-
-    }
 
     public static synchronized MyApplication getInstance() {
         return mInstance;

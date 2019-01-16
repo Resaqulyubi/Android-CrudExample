@@ -194,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button btnFlat =dialogAlternatif.findViewById(R.id.btnbatal);
+        TextView htvw_title =dialogAlternatif.findViewById(R.id.htvw_title);
         final MaterialEditText met_nama =dialogAlternatif.findViewById(R.id.met_nama);
         met_gender =dialogAlternatif.findViewById(R.id.met_gender);
         final MaterialEditText met_birthplace =dialogAlternatif.findViewById(R.id.met_birthplace);
@@ -206,12 +207,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        htvw_title.setText("Create");
+
+
         if (position >-1){
             met_nama.setText(ListData.get(position).getName());
             met_gender.setText((ListData.get(position).getGender().equals("1")?"male":"female"));
             met_birthplace.setText(ListData.get(position).getBirthplace());
             met_birthdate.setText(ListData.get(position).getBirthdate());
             ;
+            htvw_title.setText("Update");
         }
 
 
@@ -238,8 +243,9 @@ public class MainActivity extends AppCompatActivity {
         met_birthdate.setOnClickListener(view -> {
 
             // TODO Auto-generated method stub
-            new DatePickerDialog(MainActivity.this, date, myCalendar
-                    .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+            new DatePickerDialog(MainActivity.this, date,
+                    Integer.valueOf(1990),
+                    myCalendar.get(Calendar.MONTH),
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show();
         });
 
